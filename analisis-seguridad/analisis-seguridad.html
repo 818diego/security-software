@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Seguridad</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="analisis-seguridad.css">
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+    <div class="container mx-auto p-6">
+        <h1 class="text-4xl font-bold text-center mb-8">Análisis de Seguridad</h1>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Matemática detrás de RSA</h2>
+            <p>El algoritmo RSA se basa en la dificultad de factorizar grandes números primos. Los pasos básicos son:
+            </p>
+            <ol class="list-decimal list-inside">
+                <li>Seleccionar dos números primos grandes, (p) y (q).</li>
+                <li>Calcular (n = p times q).</li>
+                <li>Calcular la función totiente de Euler: (phi(n) = (p-1) times (q-1) ).</li>
+                <li>Elegir un número entero (e) tal que (1< e < phi(n)) y (gcd(e, phi(n))=1 ).</li>
+                <li>Calcular (d) tal que ( d equiv e^{-1} mod phi(n)).</li>
+                <li>El par de claves pública y privada es: (text{Pública:} (e, n)) y (text{Privada:} (d,n)).</li>
+            </ol>
+        </section> <br>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Posibles Vulnerabilidades y Medidas de Mitigación</h2>
+            <ul class="list-disc list-inside">
+                <li><strong>Ataques de Factorización:</strong> La seguridad de RSA se basa en la dificultad de
+                    factorizar \( n \) en sus factores primos \( p \) y \( q \). Utilizar primos grandes reduce este
+                    riesgo.</li>
+                <li><strong>Ataques de Fuerza Bruta:</strong> Intentar todas las claves posibles. Utilizar claves largas
+                    hace que este ataque sea inviable.</li>
+                <li><strong>Ataques de Temporización:</strong> Analizar el tiempo que tarda el sistema en realizar
+                    operaciones criptográficas. Utilizar implementaciones seguras y constantes en tiempo.</li>
+                <li><strong>Ataques de Bleichenbacher:</strong> Ataques específicos en el esquema de padding de RSA.
+                    Utilizar un esquema de padding seguro como OAEP.</li>
+            </ul>
+        </section> <br>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Efecto de la Longitud de Claves en la Seguridad</h2>
+            <p>La longitud de la clave es crucial para la seguridad de RSA. Claves más largas proporcionan mayor
+                seguridad pero a costa de una mayor carga computacional.</p>
+            <ul class="list-disc list-inside">
+                <li>Claves de 1024 bits: Consideradas inseguras en la actualidad debido a los avances en el poder de
+                    cómputo y técnicas de factorización.</li>
+                <li>Claves de 2048 bits: Actualmente consideradas seguras para la mayoría de las aplicaciones.</li>
+                <li>Claves de 4096 bits: Ofrecen un nivel de seguridad más alto, pero con un mayor costo computacional.
+                </li>
+        </section>
+        <div class="mt-8">
+            <a href="../index.html"
+                class="block w-full bg-gray-700 text-white py-3 px-4 rounded-lg text-lg text-center hover:bg-gray-600 focus:outline-none transition duration-300 ease-in-out transform hover:scale-102">Volver
+                al Inicio</a>
+        </div>
+    </div>
+</body>
+
+</html>

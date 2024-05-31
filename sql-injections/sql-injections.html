@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQL Injection - Ejemplos y Mitigación</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="sql-injections.css">
+  <script src="scripts/transitions.js" defer></script>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+  <div class="container mx-auto p-6 ">
+    <h1 class="text-4xl font-bold text-center mb-8">SQL Injection - Ejemplos y Mitigación</h1>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Ejemplo 1: Inyección SQL en la autenticación</h2>
+      <p>Ingresa tus credenciales:</p>
+      <form id="sql-form-1" class="mt-4">
+        <input type="text" id="sql-input-username-1" class="w-full p-2 rounded bg-gray-700 text-white"
+          placeholder="Usuario">
+        <input type="password" id="sql-input-password-1" class="w-full p-2 rounded bg-gray-700 text-white mt-2"
+          placeholder="Contraseña">
+        <button type="submit" class="mt-2 bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700">Iniciar
+          Sesión</button>
+      </form>
+      <div id="sql-output-1" class="mt-4 p-4 bg-gray-800 rounded"></div>
+      <p class="mt-4">
+        <strong>Descripción:</strong> Este ejemplo demuestra una vulnerabilidad en el proceso de autenticación donde las
+        credenciales del usuario son utilizadas directamente en una consulta SQL sin sanitizar.
+        <br><strong>Impacto:</strong> Un atacante puede omitir la autenticación ingresando `' OR '1'='1` como nombre de
+        usuario o contraseña.
+        <br><strong>Solución:</strong> Utilizar consultas preparadas o procedimientos almacenados para evitar la
+        inyección de código SQL.
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Ejemplo 2: Inyección SQL en una búsqueda</h2>
+      <p>Busca un producto:</p>
+      <form id="sql-form-2" class="mt-4">
+        <input type="text" id="sql-input-2" class="w-full p-2 rounded bg-gray-700 text-white"
+          placeholder="Nombre del producto">
+        <button type="submit"
+          class="mt-2 bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700">Buscar</button>
+      </form>
+      <div id="sql-output-2" class="mt-4 p-4 bg-gray-800 rounded"></div>
+      <p class="mt-4">
+        <strong>Descripción:</strong> Este ejemplo muestra cómo una búsqueda de productos es vulnerable a la inyección
+        SQL cuando el término de búsqueda se utiliza directamente en una consulta SQL.
+        <br><strong>Impacto:</strong> Un atacante puede extraer información sensible ingresando `'; DROP TABLE
+        products;--` como término de búsqueda.
+        <br><strong>Solución:</strong> Utilizar consultas preparadas o procedimientos almacenados para evitar la
+        inyección de código SQL.
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Ejemplo 3: Inyección SQL en la actualización de datos</h2>
+      <p>Actualiza tu información de usuario:</p>
+      <form id="sql-form-3" class="mt-4">
+        <input type="text" id="sql-input-username-3" class="w-full p-2 rounded bg-gray-700 text-white"
+          placeholder="Nuevo nombre de usuario">
+        <button type="submit"
+          class="mt-2 bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700">Actualizar</button>
+      </form>
+      <div id="sql-output-3" class="mt-4 p-4 bg-gray-800 rounded"></div>
+      <p class="mt-4">
+        <strong>Descripción:</strong> Este ejemplo muestra cómo la actualización de información del usuario puede ser
+        vulnerable a la inyección SQL cuando los nuevos datos se utilizan directamente en una consulta SQL.
+        <br><strong>Impacto:</strong> Un atacante puede modificar datos arbitrarios en la base de datos ingresando `';
+        UPDATE users SET role='admin';--` como nuevo nombre de usuario.
+        <br><strong>Solución:</strong> Utilizar consultas preparadas o procedimientos almacenados para evitar la
+        inyección de código SQL.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Medidas de Mitigación</h2>
+      <ul class="list-disc list-inside">
+        <li>Utilizar consultas preparadas (prepared statements) para todas las interacciones con la base de datos.</li>
+        <li>Validar y sanitizar la entrada del usuario antes de utilizarla en consultas SQL.</li>
+        <li>Utilizar procedimientos almacenados (stored procedures) para encapsular las consultas SQL.</li>
+        <li>Restringir los privilegios de las cuentas de la base de datos utilizadas por la aplicación web.</li>
+      </ul>
+    </section>
+    <div class="mt-8">
+      <a href="../index.html"
+        class="block w-full bg-gray-700 text-white py-3 px-4 rounded-lg text-lg text-center hover:bg-gray-600 focus:outline-none transition duration-300 ease-in-out transform hover:scale-102">Volver
+        al Inicio</a>
+    </div>
+  </div>
+
+  <script src="sql-injections.js"></script>
+</body>
+
+</html>

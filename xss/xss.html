@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XSS - Ejemplos y Mitigación</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="xss.css">
+  <script src="scripts/transitions.js" defer></script>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+  <div class="container mx-auto p-6 ">
+    <h1 class="text-4xl font-bold text-center mb-8">XSS - Ejemplos y Mitigación</h1>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Ejemplo 1: XSS Reflejado</h2>
+      <p>Ingresa tu nombre:</p>
+      <form id="xss-form-1" class="mt-4">
+        <input type="text" id="xss-input-1" class="w-full p-2 rounded bg-gray-700 text-white" placeholder="Tu nombre">
+        <button type="submit"
+          class="mt-2 bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700">Enviar</button>
+      </form>
+      <div id="xss-output-1" class="mt-4 p-4 bg-gray-800 rounded"></div>
+      <p class="mt-4">
+        <strong>Descripción:</strong> Este ejemplo toma la entrada del usuario y la refleja directamente en la página
+        sin escaparla.
+        <br><strong>Impacto:</strong> Un atacante puede enviar un enlace malicioso que ejecuta código arbitrario en el
+        navegador de la víctima.
+        <br><strong>Solución:</strong> Escapar y sanitizar la entrada del usuario antes de mostrarla en la página.
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Ejemplo 2: XSS Almacenado</h2>
+      <p>Ingresa un comentario:</p>
+      <form id="xss-form-2" class="mt-4">
+        <textarea id="xss-input-2" class="w-full p-2 rounded bg-gray-700 text-white"
+          placeholder="Tu comentario"></textarea>
+        <button type="submit"
+          class="mt-2 bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700">Enviar</button>
+      </form>
+      <div id="xss-output-2" class="mt-4 p-4 bg-gray-800 rounded"></div>
+      <p class="mt-4">
+        <strong>Descripción:</strong> Este ejemplo almacena la entrada del usuario (comentarios) y la muestra sin
+        sanitizar.
+        <br><strong>Impacto:</strong> Un atacante puede almacenar un script malicioso que se ejecutará cada vez que
+        alguien vea la página.
+        <br><strong>Solución:</strong> Validar y sanitizar la entrada del usuario antes de almacenarla y mostrarla en la
+        página.
+      </p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Ejemplo 3: XSS Basado en DOM</h2>
+      <p>Ingresa un mensaje para mostrar en la página:</p>
+      <form id="xss-form-3" class="mt-4">
+        <input type="text" id="xss-input-3" class="w-full p-2 rounded bg-gray-700 text-white" placeholder="Tu mensaje">
+        <button type="submit"
+          class="mt-2 bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700">Enviar</button>
+      </form>
+      <div id="xss-output-3" class="mt-4 p-4 bg-gray-800 rounded"></div>
+      <p class="mt-4">
+        <strong>Descripción:</strong> Este ejemplo toma la entrada del usuario y la inserta directamente en el DOM
+        usando `innerHTML`.
+        <br><strong>Impacto:</strong> Un atacante puede manipular el DOM para ejecutar código malicioso.
+        <br><strong>Solución:</strong> Evitar el uso de `innerHTML` y utilizar métodos seguros como `textContent`.
+      </p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Ejemplo 4: XSS Basado en URL</h2>
+      <p>Ingresa un mensaje para incluir en la URL:</p>
+      <form id="xss-form-4" class="mt-4">
+        <input type="text" id="xss-input-4" class="w-full p-2 rounded bg-gray-700 text-white" placeholder="Tu mensaje">
+        <button type="submit"
+          class="mt-2 bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700">Enviar</button>
+      </form>
+      <div id="xss-output-4" class="mt-4 p-4 bg-gray-800 rounded"></div>
+      <p class="mt-4">
+        <strong>Descripción:</strong> Este ejemplo toma la entrada del usuario y la inserta en la página a través de la
+        URL sin validación.
+        <br><strong>Impacto:</strong> Un atacante puede enviar un enlace malicioso que contiene un script que se ejecuta
+        automáticamente cuando la víctima abre la URL.
+        <br><strong>Solución:</strong> Validar y sanitizar cualquier dato que se extraiga de la URL antes de usarlo en
+        la página.
+      </p>
+      <p class="mt-4">
+        <strong>URL Maliciosa Generada:</strong> Consulta la consola del navegador para ver la URL generada.
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Ejemplo 5: XSS en un Campo de Búsqueda</h2>
+      <p>Ingresa un término de búsqueda:</p>
+      <form id="xss-form-5" class="mt-4">
+        <input type="text" id="xss-input-5" class="w-full p-2 rounded bg-gray-700 text-white"
+          placeholder="Término de búsqueda">
+        <button type="submit"
+          class="mt-2 bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700">Buscar</button>
+      </form>
+      <div id="xss-output-5" class="mt-4 p-4 bg-gray-800 rounded"></div>
+      <p class="mt-4">
+        <strong>Descripción:</strong> Este ejemplo refleja la entrada del usuario en un campo de búsqueda sin sanitizar.
+        <br><strong>Impacto:</strong> Un atacante puede enviar un enlace malicioso que contiene un script que se ejecuta
+        cuando la víctima realiza una búsqueda.
+        <br><strong>Solución:</strong> Escapar y sanitizar la entrada del usuario antes de mostrarla en la página.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Medidas de Mitigación</h2>
+      <ul class="list-disc list-inside">
+        <li>Escapar y sanitizar la entrada de usuario.</li>
+        <li>Utilizar Content Security Policy (CSP).</li>
+        <li>Validar y filtrar datos en el servidor.</li>
+        <li>Evitar el uso de `innerHTML` para insertar contenido en el DOM.</li>
+      </ul>
+    </section>
+    <div class="mt-8">
+      <a href="../index.html"
+        class="block w-full bg-gray-700 text-white py-3 px-4 rounded-lg text-lg text-center hover:bg-gray-600 focus:outline-none transition duration-300 ease-in-out transform hover:scale-102">Volver
+        al Inicio</a>
+    </div>
+  </div>
+
+  <script src="xss.js"></script>
+</body>
+
+</html>

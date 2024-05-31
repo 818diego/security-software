@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing y Defensa</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="phishing.css">
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+  <div class="container mx-auto p-6">
+    <h1 class="text-4xl font-bold text-center mb-8">Phishing y Defensa</h1>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Simulación de Phishing</h2>
+      <p>Este ejemplo demuestra cómo un ataque de phishing puede ser convincente y recolectar credenciales.</p>
+      <form id="phishing-form" class="mt-4">
+        <input type="text" id="phishing-username" class="w-full p-2 rounded bg-gray-700 text-white"
+          placeholder="Usuario">
+        <input type="password" id="phishing-password" class="w-full p-2 rounded bg-gray-700 text-white mt-2"
+          placeholder="Contraseña">
+        <button type="submit" class="mt-2 bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700">Iniciar
+          Sesión</button>
+      </form>
+      <div id="phishing-output" class="mt-4 p-4 bg-gray-800 rounded"></div>
+      <p class="mt-4">
+        <strong>Descripción:</strong> Esta página imita una página de inicio de sesión legítima para engañar a los
+        usuarios y recolectar sus credenciales.
+        <br><strong>Impacto:</strong> Un atacante puede usar la información recolectada para acceder a cuentas de
+        usuarios y robar información sensible.
+        <br><strong>Solución:</strong> Concienciar a los usuarios sobre la importancia de verificar la autenticidad de
+        las páginas de inicio de sesión.
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Elementos que Hacen Efectivo un Ataque de Phishing</h2>
+      <ul class="list-disc list-inside">
+        <li>Diseño convincente que imita una página legítima.</li>
+        <li>Uso de enlaces que parecen auténticos.</li>
+        <li>Mensajes urgentes o alarmantes que inducen al usuario a actuar rápidamente.</li>
+        <li>Recolección de información personal o financiera.</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Medidas de Defensa</h2>
+      <ul class="list-disc list-inside">
+        <li>Verificar siempre la URL del sitio web antes de ingresar información sensible.</li>
+        <li>Habilitar la autenticación de dos factores (2FA) en todas las cuentas posibles.</li>
+        <li>Utilizar software de seguridad y herramientas de detección de phishing.</li>
+        <li>Educar a los usuarios sobre los peligros del phishing y cómo identificar correos electrónicos y sitios web
+          sospechosos.</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Estrategia de Concientización para Prevenir el Phishing</h2>
+      <p>Para prevenir el phishing, es crucial implementar una estrategia de concientización que incluya:</p>
+      <ul class="list-disc list-inside">
+        <li>Programas de capacitación regular para empleados sobre seguridad cibernética.</li>
+        <li>Simulaciones de ataques de phishing para evaluar y mejorar la respuesta de los empleados.</li>
+        <li>Actualizaciones constantes sobre nuevas tácticas de phishing y cómo defenderse contra ellas.</li>
+        <li>Comunicación clara y efectiva sobre las políticas de seguridad y los recursos disponibles para reportar
+          intentos de phishing.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Solución Técnica para Detectar y Bloquear Correos de Phishing</h2>
+      <ul class="list-disc list-inside">
+        <li>Implementar filtros de correo electrónico avanzados que utilicen inteligencia artificial para detectar y
+          bloquear correos de phishing.</li>
+        <li>Utilizar listas negras y listas blancas para gestionar el tráfico de correo electrónico.</li>
+        <li>Analizar los encabezados de los correos electrónicos para identificar signos de suplantación de identidad.
+        </li>
+        <li>Habilitar la autenticación de correo electrónico mediante SPF, DKIM y DMARC para verificar la autenticidad
+          de los correos electrónicos entrantes.</li>
+      </ul>
+    </section>
+    <div class="mt-8">
+      <a href="../index.html"
+        class="block w-full bg-gray-700 text-white py-3 px-4 rounded-lg text-lg text-center hover:bg-gray-600 focus:outline-none transition duration-300 ease-in-out transform hover:scale-102">Volver
+        al Inicio</a>
+    </div>
+  </div>
+
+  <script src="phishing.js"></script>
+</body>
+
+</html>

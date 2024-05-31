@@ -1,0 +1,43 @@
+.container {
+  max-width: 800px;
+}
+
+h1, h2 {
+  color: #ffffff;
+}
+
+p, li {
+  font-size: 1.125rem; /* 18px */
+}
+
+section {
+  background-color: #2d3748;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2d3748;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4a5568;
+  border-radius: 10px;
+  border: 3px solid #2d3748;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #718096;
+}
+
+/* Estilo para el contenedor desplazable */
+.scrollable-content {
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  padding-right: 1rem; /* Espacio adicional para el scrollbar */
+}

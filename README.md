@@ -20,10 +20,3 @@ Este módulo presenta ejemplos de inyecciones SQL, incluyendo inyección en aute
 
 ### 5. Phishing y Defensa
 Este módulo simula un ataque de phishing, mostrando cómo los atacantes pueden recolectar credenciales de usuarios mediante páginas de inicio de sesión falsas. También se analizan los elementos que hacen efectivo un ataque de phishing y se proponen medidas de defensa. El objetivo es concienciar sobre los ataques de phishing, demostrar cómo funcionan, y proporcionar estrategias y soluciones técnicas para prevenir y detectar estos ataques.
-
-## Cómo Clonar y Ejecutar
-
-### Prerrequisitos
-- Tener instalado [Git](https://git-scm.com/)
-- Tener instalado [Node.js](https://nodejs.org/)
-- Tener instalado [Visual Studio Code](https://code.visualstudio.com/)

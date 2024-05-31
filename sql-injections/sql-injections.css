@@ -7,7 +7,7 @@ h1, h2 {
 }
 
 p, li {
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.125rem;
 }
 
 section {
@@ -35,9 +35,8 @@ section {
   background-color: #718096;
 }
 
-/* Estilo para el contenedor desplazable */
 .scrollable-content {
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
-  padding-right: 1rem; /* Espacio adicional para el scrollbar */
+  padding-right: 1rem; 
 }

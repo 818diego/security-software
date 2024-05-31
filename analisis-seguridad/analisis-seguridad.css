@@ -52,9 +52,8 @@ button:focus {
   background-color: #718096;
 }
 
-/* Estilo para el contenedor desplazable */
 .scrollable-content {
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
-  padding-right: 1rem; /* Espacio adicional para el scrollbar */
+  padding-right: 1rem; 
 }
